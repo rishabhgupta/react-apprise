@@ -21,6 +21,6 @@
   },
   "include": [
     "src",
-    "images.d.ts"
+    "images.d.ts", "release.config.js"
   ]
 }

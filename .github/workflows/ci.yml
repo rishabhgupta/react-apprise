@@ -36,7 +36,7 @@ jobs:
       - name: Build Project
         if: github.event_name == 'push'
         run: npm run build
-      - name: Deploy to staging
+      - name: Deploying to surge
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain brawny-scale.surge.sh
         env:
