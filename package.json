@@ -36,10 +36,24 @@
     ]
   },
   "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@testing-library/react": "^9.5.0",
     "@types/jest": "^24.9.1",
     "@types/react": "^16.9.34",
+    "cz-conventional-changelog": "^3.1.0",
     "prettier": "2.0.5",
     "semantic-release": "^17.0.7"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
