@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [dev]
+    branches: [dev, master]
   push:
-    branches: [dev]
+    branches: [dev, master]
 
 jobs:
   build:
@@ -36,6 +36,11 @@ jobs:
       - name: Build Project
         if: github.event_name == 'push'
         run: npm run build
+      - name: Release
+        if: github.event_name == 'push' && github.ref === 'refs/heads/master'
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploying to surge
         if: github.event_name == 'push'
         run: npx surge --project ./build --domain brawny-scale.surge.sh
