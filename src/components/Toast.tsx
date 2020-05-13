@@ -1,12 +1,22 @@
 import React, { ReactElement, useState, useEffect } from "react";
 import './Toast.css';
 
+type toast = {
+    id: number;
+    title: string;
+    description: string;
+    backgroundColor: string;
+    icon: string;
+}
 interface IProps {
-    toastList: any;
-    position: any;
+    /** represents an array that will contain objects */
+    toastList: toast[];
+    /** placement of the notification container on the page. */
+    position?: 'top-right' | 'bottom-right' | 'top-left' | 'bottom-left';
 }
 
 const Toast = (props: IProps): ReactElement => {
+
     const { toastList, position } = props;
 
     const [list, setList] = useState(toastList);
@@ -19,10 +29,11 @@ const Toast = (props: IProps): ReactElement => {
         <>
             <div className={`notification-container ${position}`}>
                 {
-                    list.map((toast: any, i: number) =>     
+                    list.map((toast, i: number) =>     
                         <div 
                             key={i}
                             className={`notification toast ${position}`}
+                            style={{ backgroundColor: toast.backgroundColor }}
                         >
                             <button>
                                 X
@@ -42,6 +53,10 @@ const Toast = (props: IProps): ReactElement => {
             </div>
         </>
     );
+}
+
+Toast.defaultProps = {
+    position: 'bottom-right'
 }
 
 export default Toast;
