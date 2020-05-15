@@ -24,6 +24,12 @@ const Toast = (props: IProps): ReactElement => {
         setList(toastList);
     }, [toastList, list]);
 
+    const onDelete = (id: number): void => {
+        const index = list.findIndex(e => e.id === id);
+        list.splice(index, 1);
+        setList([...list]);
+    }
+
     return (
         <>
             <div className={`notification-container ${position}`}>
@@ -33,7 +39,7 @@ const Toast = (props: IProps): ReactElement => {
                         className={`notification toast ${position}`}
                         style={{ backgroundColor: toast.backgroundColor }}
                     >
-                        <button>X</button>
+                        <button onClick={() => onDelete(toast.id)}>X</button>
                         <div className="notification-image">
                             <img src={toast.icon} alt="" />
                         </div>
