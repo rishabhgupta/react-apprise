@@ -37,5 +37,39 @@ const testList = [
     }
 ];
 
- <Toast toastList={testList} position="top-right" />
+const indexMap  = {
+    success: 0,
+    danger: 1,
+    info: 2,
+    warning: 3
+}
+
+class ToastWrapper extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            toastList: [],
+        }
+        this.hanldeOnClick = this.hanldeOnClick.bind(this);
+    }
+
+    hanldeOnClick(e) {
+        this.setState({
+            toastList: [...this.state.toastList,  testList[indexMap[e.target.name]]]
+        });
+    }
+    render() {
+        return (
+            <div>
+                <button name="success" onClick={this.hanldeOnClick}>Success</button>
+                <button name="danger" onClick={this.hanldeOnClick}>Danger</button>
+                <button name="info" onClick={this.hanldeOnClick}>Info</button>
+                <button name="warning" onClick={this.hanldeOnClick}>Warning</button>
+                <Toast toastList={this.state.toastList} position="top-right" />
+            </div>
+        )
+    }
+}
+<ToastWrapper/>
+//  <Toast toastList={testList} position="top-right" />
 ```
