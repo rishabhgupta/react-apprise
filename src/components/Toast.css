@@ -44,8 +44,9 @@
 	padding: 30px;
 	margin-bottom: 15px;
 	width: 300px;
+	height: 50px;
 	max-height: 100px;
-	border-radius: 3px 3px 3px 3px;
+	border-radius: 10px 10px 10px 10px;
 	box-shadow: 0 0 10px #999;
 	color: #000;
 	opacity: .9;
@@ -91,7 +92,7 @@
 
 .toast {
     height: 50px;
-    width: 365px;
+    width: 300px;
 	color: #fff;
 	padding: 20px 15px 10px 10px;
 }
