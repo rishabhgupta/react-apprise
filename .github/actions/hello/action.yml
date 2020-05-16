@@ -1,0 +1,14 @@
+name: Hello World
+author: Rishabh Gupta
+description: Some description
+inputs:
+  who-to-greet:
+    description: "Who to greet"
+    required: true
+    default: User
+outputs:
+  time:
+    description: "Thee greeting time"
+runs:
+  using: node12
+  main: "dist/index.js"
