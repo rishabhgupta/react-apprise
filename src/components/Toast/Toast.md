@@ -1,10 +1,11 @@
 Toast example:
 
 ```js
-import checkIcon from "../assets/check.svg";
-import errorIcon from "../assets/error.svg";
-import infoIcon from "../assets/info.svg";
-import warningIcon from "../assets/warning.svg";
+import checkIcon from "../../assets/check.svg";
+import errorIcon from "../../assets/error.svg";
+import infoIcon from "../../assets/info.svg";
+import warningIcon from "../../assets/warning.svg";
+import PrimaryButton, {InfoButton, WarningButton, DangerButton} from '../Button/Button';
 
 const testList = [
     {
@@ -61,10 +62,14 @@ class ToastWrapper extends React.Component {
     render() {
         return (
             <div>
-                <button name="success" onClick={this.hanldeOnClick}>Success</button>
-                <button name="danger" onClick={this.hanldeOnClick}>Danger</button>
-                <button name="info" onClick={this.hanldeOnClick}>Info</button>
-                <button name="warning" onClick={this.hanldeOnClick}>Warning</button>
+                <PrimaryButton name="success" onClick={this.hanldeOnClick}>Success</PrimaryButton>
+                <span> </span>
+                <DangerButton name="danger" onClick={this.hanldeOnClick}>Danger</DangerButton>
+                <span> </span>
+                <InfoButton name="info" onClick={this.hanldeOnClick}>Info</InfoButton>
+                <span> </span>
+                <WarningButton name="warning" onClick={this.hanldeOnClick}>Warning</WarningButton>
+                <span> </span>
                 <Toast toastList={this.state.toastList} position="top-right" />
             </div>
         )

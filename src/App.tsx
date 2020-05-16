@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import Toast from "./components/Toast";
+import Toast from "./components/Toast/Toast";
 import "./App.css";
 import checkIcon from "./assets/check.svg";
 import errorIcon from "./assets/error.svg";
