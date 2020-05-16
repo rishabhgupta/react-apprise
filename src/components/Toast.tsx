@@ -25,10 +25,10 @@ const Toast = (props: IProps): ReactElement => {
     }, [toastList, list]);
 
     const onDelete = (id: number): void => {
-        const index = list.findIndex(e => e.id === id);
+        const index = list.findIndex((e) => e.id === id);
         list.splice(index, 1);
         setList([...list]);
-    }
+    };
 
     return (
         <>
