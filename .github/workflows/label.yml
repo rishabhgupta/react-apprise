@@ -20,4 +20,4 @@ jobs:
           string: $GITHUB_BRANCH_NAME
           split-by: '/'
       - run: | 
-          echo "${{ steps.branchName.outputs.value[1] }}"
+          echo "${{ steps.branchName.outputs.value }}"
