@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GITHUB_LABEL_NAME: ${{ github.event.label.name }}
-      GITHUB_BRANCH_NAME: ${{ github.ref }}
+      GITHUB_BRANCH_NAME: ${{ toJson(github) }}
     steps:
       - uses: actions/checkout@v2
       - name: Dump GitHub Label Name
