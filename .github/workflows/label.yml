@@ -17,7 +17,7 @@ jobs:
       - uses: ./.github/actions/hello
         id: branchName
         with:
-          string: ${{$GITHUB_BRANCH_NAME}}
+          string: ${{ github.head_ref }}
           split-by: '/'
       - run: | 
           echo "${{ steps.branchName.outputs.value }}"
