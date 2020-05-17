@@ -2,13 +2,17 @@ name: Hello World
 author: Rishabh Gupta
 description: Some description
 inputs:
-  who-to-greet:
-    description: "Who to greet"
+  string:
+    description: "String to split"
     required: true
-    default: User
+    default: ""
+  split-by:
+    description: "String to split by"
+    required: true
+    default: ""
 outputs:
-  time:
-    description: "Thee greeting time"
+  value:
+    description: "Array of strings"
 runs:
   using: node12
   main: "dist/index.js"

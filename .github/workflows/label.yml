@@ -1,6 +1,8 @@
 on:
   pull_request:
     types: [labeled]
+    branches:
+      - 'feat/**'
 
 jobs:
   build:
@@ -14,3 +16,10 @@ jobs:
         run: echo "$GITHUB_LABEL_NAME"
       - name: Dump GitHub Branch Name
         run: echo "$GITHUB_BRANCH_NAME"
+      - uses: ./.github/actions/hello
+        id: branchName
+        with:
+          string: $GITHUB_BRANCH_NAME
+          split-by: '/'
+      - run: | 
+          echo "${{ steps.branchName.outputs.value[1] }}"

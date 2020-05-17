@@ -3713,11 +3713,10 @@ const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
 try {
-    const name = core.getInput('who-to-greet');
-    console.log(`Hello ${name}`);
-    const time = new Date();
-    core.setOutput("time", time.toTimeString());
-    console.log(JSON.stringify(github, null, '\t'));
+    const stringValue = core.getInput('string');
+    const splitBy = core.getInput('split-by');
+    const value = stringValue.split(splitBy);
+    core.setOutput("value", value);
 } catch (err) {
     core.setFailed(err.message);
 }
