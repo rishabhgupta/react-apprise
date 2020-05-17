@@ -5,11 +5,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_LABEL_NAME: ${{ github.event.label.name }}
+      GITHUB_BRANCH_NAME: ${{ github.head.ref }}
     steps:
       - uses: actions/checkout@v2
-      - name: Dump GitHub context
-        env:
-          GITHUB_LABEL_NAME: ${{ github.event.label.name }}
-          GITHUB_BRANCH_NAME: ${{ github.head.ref }}
+      - name: Dump GitHub Label Name
         run: echo "$GITHUB_LABEL_NAME"
+      - name: Dump GitHub Branch Name
         run: echo "$GITHUB_BRANCH_NAME"
