@@ -14,7 +14,7 @@ jobs:
         run: echo "$GITHUB_LABEL_NAME"
       - name: Dump GitHub Branch Name
         run: echo "$GITHUB_BRANCH_NAME"
-      - uses: rishabhgupta/split-by@v1
+      - uses: ./.github/actions/hello
         id: branchName
         with:
           string: ${{ github.head_ref }}
