@@ -18,6 +18,6 @@ jobs:
         id: branchName
         with:
           string: ${{ github.head_ref }}
-          split-by: '/'
+          split-by: '/'1
       - run: | 
-          echo "${{ steps.branchName.outputs.value }}"
+          echo "${{ toJson(steps.branchName.outputs.value)._1 }}"
