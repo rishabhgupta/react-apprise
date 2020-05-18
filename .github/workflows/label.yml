@@ -20,4 +20,4 @@ jobs:
           string: ${{ github.head_ref }}
           split-by: '/'
       - run: | 
-          echo "${{ steps.branchName.outputs.value }}"
+          echo "${{ steps.branchName.outputs.value[1] }}"
