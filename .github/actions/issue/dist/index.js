@@ -7299,7 +7299,7 @@ try {
     core.setOutput('issue', JSON.stringify(response.data));
 
 } catch (err) {
-    core.setFailed(error.message)
+    core.setFailed(err.message)
 }
 
 /***/ }),
