@@ -7281,26 +7281,31 @@ exports.getState = getState;
 const core = __webpack_require__(470);
 const github = __webpack_require__(469);
 
-try {
-    const token = core.getInput('token');
-    const title = core.getInput('title');
-    const body = core.getInput('body');
-    const assignees = core.getInput('assignees');
 
-    const octokit = new github.GitHub(token);
+async function run() {
+    try {
+        const token = core.getInput('token');
+        const title = core.getInput('title');
+        const body = core.getInput('body');
+        const assignees = core.getInput('assignees');
 
-    const response = octokit.issues.create({
-        ...github.context.repo,
-        title,
-        body,
-        assignees: assignees ? assignees.split(',') : undefined
-    })
+        const octokit = new github.GitHub(token);
 
-    core.setOutput('issue', JSON.stringify(response.data));
+        const response = await octokit.issues.create({
+            ...github.context.repo,
+            title,
+            body,
+            assignees: assignees ? assignees.split(',') : undefined
+        })
 
-} catch (err) {
-    core.setFailed(err.message)
+        core.setOutput('issue', JSON.stringify(response.data));
+
+    } catch (err) {
+        core.setFailed(err.message)
+    }
 }
+
+run();
 
 /***/ }),
 
