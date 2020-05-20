@@ -2,57 +2,27 @@ const core = require('@actions/core');
 const fetch = require('node-fetch');
 
 const slackTemplate = {
-	"blocks": [
-		{
-			"type": "section",
-			"text": {
-				"type": "mrkdwn",
-				"text": "A new version is available"
-			}
-		},
-		{
-			"type": "section",
-			"fields": [
-				{
-					"type": "mrkdwn",
-					"text": "*Package*\n@moengage/commons"
-				},
-				{
-					"type": "mrkdwn",
-					"text": "*Version:*\nv2.0.0"
-				},
-				{
-					"type": "mrkdwn",
-					"text": "*By:*\n\"Rishabh Gupta"
-				}
-			]
-		},
-		{
-			"type": "actions",
-			"elements": [
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": "Documentation"
-					},
-					"style": "primary",
-					"value": "http://moengage-triggers.s3.amazonaws.com/v0.2.1/index.html"
-				},
-				{
-					"type": "button",
-					"text": {
-						"type": "plain_text",
-						"emoji": true,
-						"text": "Change Log"
-					},
-					"style": "secondary",
-					"value": "https://github.com/rishabhgupta/react-apprise"
-				}
-			]
-		}
-	]
+    "text": "New Package Version is available",
+    "attachments": [
+        {
+            "text": "@moengage/commons - v2.0.0",
+            "actions": [
+                {
+                    "name": "Documentation",
+                    "text": "Documentation",
+                    "type": "button",
+                    "value": "http://moengage-triggers.s3.amazonaws.com/v0.2.1/index.html",
+					"style": "primary"
+                },
+                {
+                    "name": "changelof",
+                    "text": "Change Log",
+                    "type": "button",
+                    "value": "maze"
+                }
+            ]
+        }
+    ]
 }
 
 async function run() {
