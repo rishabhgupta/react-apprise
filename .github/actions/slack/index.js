@@ -68,7 +68,7 @@ async function run() {
         const response = await fetch(webhook, {
             method: 'POST',
             headers,
-            body: JSON.stringify({ text }),
+            body: JSON.stringify({ slackTemplate }),
         });
 
         core.setOutput(JSON.stringify(slackTemplate));
