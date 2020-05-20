@@ -71,7 +71,7 @@ async function run() {
             body: JSON.stringify({ slackTemplate }),
         });
 
-        core.setOutput(JSON.stringify(slackTemplate));
+        core.setOutput(JSON.stringify(response));
 
     } catch (err) {
         core.setFailed(err.message);
