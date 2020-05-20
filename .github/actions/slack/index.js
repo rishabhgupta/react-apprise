@@ -2,26 +2,39 @@ const core = require('@actions/core');
 const fetch = require('node-fetch');
 
 const slackTemplate = {
-    "text": "New Package Version is available",
+    "text": "New Package Version is available!",
     "attachments": [
         {
-            "text": "@moengage/commons - v2.0.0",
-            "actions": [
+            "fields": [
                 {
-                    "name": "Documentation",
-                    "text": "Documentation",
-                    "type": "button",
-                    "value": "http://moengage-triggers.s3.amazonaws.com/v0.2.1/index.html",
-					"style": "primary"
+                    "title": "Package Name",
+                    "value": "@moengage/commons",
+                    "short": true
                 },
                 {
-                    "name": "changelof",
+                    "title": "Version",
+                    "value": "v2.0.0",
+            "short": true
+                }
+            ],
+			 "actions": [
+                {
+                    "name": "documentation",
+                    "text": "Documentation",
+                    "type": "button",
+					"style": "primary",
+                    "url": "http://moengage-triggers.s3.amazonaws.com/v0.2.1/index.html"
+                },
+                {
+                    "name": "changelog",
                     "text": "Change Log",
                     "type": "button",
-                    "value": "maze"
+                    "url": "http://moengage-triggers.s3.amazonaws.com/v0.2.1/index.html"
                 }
             ]
         }
+  
+        
     ]
 }
 
