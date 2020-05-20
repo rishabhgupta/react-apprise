@@ -19,3 +19,8 @@ jobs:
           who-to-greet: "World"
       - run: | 
           echo "Time: ${{ steps.hello.outputs.time }}"
+      - uses: ./.github/actions/slack
+        id: slack
+        with:
+            text: 'This is a slack message'
+            webhook: ${{ secrets.SLACK_WEBHOOK }}

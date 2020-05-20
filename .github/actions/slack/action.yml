@@ -1,0 +1,13 @@
+name: 'Notify on Slack'
+author: rishabhgupta
+description: 'Sends slack notification'
+inputs:
+  text:
+    description: 'Text of the slack message.'
+    required: true
+  webhook:
+    description: 'Slack webhook'
+    required: true
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
