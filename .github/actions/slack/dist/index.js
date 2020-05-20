@@ -2147,14 +2147,14 @@ async function run() {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         };
-        
+        console.log(slackTemplate);
         const response = await fetch(webhook, {
             method: 'POST',
             headers,
-            body: JSON.stringify({ slackTemplate }),
+            body: JSON.stringify(slackTemplate),
         });
 
-        core.setOutput(JSON.stringify(slackTemplate));
+        core.setOutput(JSON.stringify(response));
 
     } catch (err) {
         core.setFailed(err.message);
