@@ -2151,7 +2151,14 @@ async function run() {
         const response = await fetch(webhook, {
             method: 'POST',
             headers,
-            body: JSON.stringify(slackTemplate),
+            body: JSON.stringify({
+                "text": "I am a test message",
+                "attachments": [
+                    {
+                        "text": "And here’s an attachment!"
+                    }
+                ]
+            }),
         });
 
         core.setOutput(JSON.stringify(response));
