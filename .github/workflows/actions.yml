@@ -22,5 +22,8 @@ jobs:
       - uses: ./.github/actions/slack
         id: slack
         with:
-            text: 'This is a slack message'
+            package: '@moengage/triggers'
+            version: '0.2.1'
+            documentation-link: 'http://moengage-triggers.s3.amazonaws.com/v0.2.1/index.html'
+            change-log-link: 'https://github.com/moengage/dashboard-commons/blob/master/packages/triggers/CHANGELOG.md'
             webhook: ${{ secrets.SLACK_WEBHOOK }}

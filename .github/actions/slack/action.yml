@@ -2,9 +2,20 @@ name: 'Notify on Slack'
 author: rishabhgupta
 description: 'Sends slack notification'
 inputs:
-  text:
-    description: 'Text of the slack message.'
+  package:
+    description: 'Name of the package released'
     required: true
+  version:
+    description: 'Version of the package released'
+    required: true
+  documentation-link:
+    description: 'Link of the documentaion if hosted'
+    required: false
+    default: ""
+  change-log-link: 
+    description: 'Link of the change if available'
+    required: false
+    default: ""
   webhook:
     description: 'Slack webhook'
     required: true

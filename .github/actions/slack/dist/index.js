@@ -2084,53 +2084,66 @@ module.exports = require("url");
 const core = __webpack_require__(470);
 const fetch = __webpack_require__(454);
 
-const slackTemplate = {
-    "text": "New Package Version is available!",
-    "attachments": [
-        {
+
+function getSlackMessage(package, version, documentation, changelog) {
+    const slackTemplate = {
+        "text": "New Package Version is available!",
+        "attachments": [{
             "fields": [
                 {
                     "title": "Package Name",
-                    "value": "@moengage/commons",
+                    "value": `${package}`,
                     "short": true
                 },
                 {
                     "title": "Version",
-                    "value": "v2.0.0",
-            "short": true
-                }
-            ],
-			 "actions": [
-                {
-                    "name": "documentation",
-                    "text": "Documentation",
-                    "type": "button",
-					"style": "primary",
-                    "url": "http://moengage-triggers.s3.amazonaws.com/v0.2.1/index.html"
-                },
-                {
-                    "name": "changelog",
-                    "text": "Change Log",
-                    "type": "button",
-                    "url": "http://moengage-triggers.s3.amazonaws.com/v0.2.1/index.html"
+                    "value": `v${version}`,
+                    "short": true
                 }
             ]
-        }
-  
-        
-    ]
+        }]
+    }
+
+    const actions = [];
+    if (documentation && documentation !== "") {
+        actions.push({
+            "name": "documentation",
+            "text": "Documentation",
+            "type": "button",
+            "style": "primary",
+            "url": `${documentation}`
+        })
+    }
+
+    if (changelog && changelog !== "") {
+        actions.push({
+            "name": "changelog",
+            "text": "Change Log",
+            "type": "button",
+            "url": `${changelog}`
+        })
+    }
+
+    if (actions.length > 0) {
+        slackTemplate.attachments[0].actions = actions;
+    }
+
+    return slackTemplate;
 }
 
 async function run() {
     try {  
-        const text = core.getInput('text');
+        const package = core.getInput('package');
+        const version = core.getInput('version');
+        const documentation = core.getInput('documentation-link');
+        const changelog = core.getInput('change-log-link');
         const webhook = core.getInput('webhook');
 
         const headers = {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
         };
-        console.log(slackTemplate);
+        const slackTemplate = getSlackMessage(package, version, documentation, changelog)
         const response = await fetch(webhook, {
             method: 'POST',
             headers,
