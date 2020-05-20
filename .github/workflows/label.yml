@@ -1,0 +1,23 @@
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_LABEL_NAME: ${{ github.event.label.name }}
+      GITHUB_BRANCH_NAME: ${{ github.head_ref }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Dump GitHub Label Name
+        run: echo "$GITHUB_LABEL_NAME"
+      - name: Dump GitHub Branch Name
+        run: echo "$GITHUB_BRANCH_NAME"
+      - uses: rishabhgupta/split-by@v1
+        id: branchName
+        with:
+          string: ${{ github.head_ref }}
+          split-by: '/'
+      - run: | 
+          echo "${{ steps.branchName.outputs._1 }}"

@@ -1,0 +1,29 @@
+on: push
+jobs:
+  testing-action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: rishabhgupta/git-action-issue@v2
+        id: Issue
+        with:
+            token: ${{ secrets.GITHUB_TOKEN }}
+            title: Title
+            body: body
+            assignees: 'rishabhgupta'
+      - run: |
+          echo ${{ steps.issue.outputs.issue }}
+      - uses: ./.github/actions/hello
+        id: hello
+        with:
+          who-to-greet: "World"
+      - run: | 
+          echo "Time: ${{ steps.hello.outputs.time }}"
+      - uses: ./.github/actions/slack
+        id: slack
+        with:
+            package: '@moengage/triggers'
+            version: '0.2.1'
+            documentation-link: 'http://moengage-triggers.s3.amazonaws.com/v0.2.1/index.html'
+            change-log-link: 'https://github.com/moengage/dashboard-commons/blob/master/packages/triggers/CHANGELOG.md'
+            webhook: ${{ secrets.SLACK_WEBHOOK }}

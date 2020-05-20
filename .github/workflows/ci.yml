@@ -2,9 +2,9 @@ name: CI
 
 on:
   pull_request:
-    branches: [dev, master]
+    branches: [dev2, master2]
   push:
-    branches: [dev, master]
+    branches: [dev2, master2]
 
 jobs:
   build:
@@ -23,6 +23,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: "12.x"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - run: npm ci
       - run: npm run format:check
       - run: npm test -- --coverage
@@ -52,4 +56,3 @@ jobs:
         run: npx codecov
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-

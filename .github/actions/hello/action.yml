@@ -1,0 +1,18 @@
+name: Hello World
+author: Rishabh Gupta
+description: Some description
+inputs:
+  string:
+    description: "String to split"
+    required: true
+    default: ""
+  split-by:
+    description: "String to split by"
+    required: true
+    default: ""
+outputs:
+  value:
+    description: "Array of strings"
+runs:
+  using: node12
+  main: "dist/index.js"
