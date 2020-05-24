@@ -5,7 +5,7 @@ import checkIcon from "../../assets/check.svg";
 import errorIcon from "../../assets/error.svg";
 import infoIcon from "../../assets/info.svg";
 import warningIcon from "../../assets/warning.svg";
-import PrimaryButton, {InfoButton, WarningButton, DangerButton} from '../Button/Button';
+import { Button } from '../Button/Button';
 
 const testList = [
     {
@@ -62,13 +62,13 @@ class ToastWrapper extends React.Component {
     render() {
         return (
             <div>
-                <PrimaryButton name="success" onClick={this.hanldeOnClick}>Success</PrimaryButton>
+                <Button primary name="success" onClick={this.hanldeOnClick}>Success</Button>
                 <span> </span>
-                <DangerButton name="danger" onClick={this.hanldeOnClick}>Danger</DangerButton>
+                <Button danger name="danger" onClick={this.hanldeOnClick}>Danger</Button>
                 <span> </span>
-                <InfoButton name="info" onClick={this.hanldeOnClick}>Info</InfoButton>
+                <Button info name="info" onClick={this.hanldeOnClick}>Info</Button>
                 <span> </span>
-                <WarningButton name="warning" onClick={this.hanldeOnClick}>Warning</WarningButton>
+                <Button warning name="warning" onClick={this.hanldeOnClick}>Warning</Button>
                 <span> </span>
                 <Toast toastList={this.state.toastList} position="top-right" />
             </div>
