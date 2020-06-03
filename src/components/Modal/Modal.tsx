@@ -44,7 +44,7 @@ const Modal = ({ showModal, setShowModal }: IProps): ReactElement => {
                 <SignUpText>
                     Sign Up to get access!
             </SignUpText>
-                <Button>nello</Button>
+                <Button modifiers={['small']}>nello</Button>
             </ModalWrapper>
         </animated.div>
     )

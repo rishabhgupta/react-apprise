@@ -1,6 +1,6 @@
-import styled, { StyledFunction } from "styled-components";
+import styled from "styled-components";
 import { defaultTheme, typeScale } from "../../utils";
-import { applyStyleModifiers } from 'styled-components-modifiers';
+import { applyStyleModifiers, styleModifierPropTypes } from 'styled-components-modifiers';
 import { ReactNode, ButtonHTMLAttributes, FunctionComponent } from "react";
 import { thisExpression } from "@babel/types";
 
@@ -64,6 +64,7 @@ interface IButton {
     info?: boolean;
     warning?: boolean;
     danger?: boolean;
+    modifiers: any;
 }
 
 export const Button = styled.button<IButton>`
