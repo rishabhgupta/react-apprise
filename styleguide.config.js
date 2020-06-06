@@ -6,5 +6,5 @@ module.exports = {
     ],
     pagePerSection: true,
     styleguideDir: "build",
-    ignore: ['**/*.test.ts', '**/*.ts']
+    ignore: ['**/*.test.ts', '**/*.ts', 'src/components/**/helpers/*.tsx']
 }

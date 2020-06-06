@@ -1,7 +1,7 @@
-import React, { ReactElement, useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { applyStyleModifiers } from 'styled-components-modifiers';
-import Toast from './Toast';
+import React, { ReactElement, useState, useEffect } from "react";
+import styled from "styled-components";
+import { applyStyleModifiers } from "styled-components-modifiers";
+import Toast from "./helpers/Toast";
 
 const TOASTR_MODIFIERS = {
     topRight: () => `
@@ -21,8 +21,7 @@ const TOASTR_MODIFIERS = {
         bottom: 12px;
         left: 12px;
     `
-}
-
+};
 
 type toast = {
     id: number;
@@ -38,16 +37,16 @@ interface IProps {
 
 const SToastrContainer = styled.div<IProps>`
     font-size: 14px;
-	box-sizing: border-box;
-	position: fixed;
+    box-sizing: border-box;
+    position: fixed;
     z-index: 999999;
     ${applyStyleModifiers(TOASTR_MODIFIERS)}
-`
+`;
 
 type IToastrProps = {
     /** represents an array that will contain objects */
     toastList: toast[];
-}
+};
 
 const Toastr = (props: IToastrProps): ReactElement => {
     const { toastList } = props;
@@ -64,16 +63,16 @@ const Toastr = (props: IToastrProps): ReactElement => {
     };
 
     return (
-        <SToastrContainer modifiers={['topRight']}>
+        <SToastrContainer modifiers={["topRight"]}>
             {list.map((toastr: toast, index: number) => (
                 <Toast key={index} {...toastr} onDelete={onDelete}></Toast>
             ))}
         </SToastrContainer>
-    )
-}
+    );
+};
 
 Toastr.defaultProps = {
-    toastList: [],
-}
+    toastList: []
+};
 
-export default Toastr
+export default Toastr;

@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
-import { PRIMARY_FONT } from './typography';
+import { createGlobalStyle } from "styled-components";
+import { PRIMARY_FONT } from "./typography";
 
 const GlobalStyle = createGlobalStyle`
     html {
-        color: ${props => 'black'};
+        color: ${(props) => "black"};
         font-size: 16px;
         box-sizing: border-box;
     }
@@ -16,4 +16,4 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         font-family: ${PRIMARY_FONT}
     }
-`
+`;
