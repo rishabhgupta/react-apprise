@@ -1,10 +1,12 @@
-Toast example:
+## Example
 
-```js
-import checkIcon from "../assets/check.svg";
-import errorIcon from "../assets/error.svg";
-import infoIcon from "../assets/info.svg";
-import warningIcon from "../assets/warning.svg";
+```jsx
+import Toastr from './Toastr';
+import { Button } from '../Button/Button';
+import checkIcon from "../../assets/check.svg";
+import errorIcon from "../../assets/error.svg";
+import infoIcon from "../../assets/info.svg";
+import warningIcon from "../../assets/warning.svg";
 
 const testList = [
     {
@@ -44,8 +46,8 @@ const indexMap  = {
     warning: 3
 }
 
-class ToastWrapper extends React.Component {
-    constructor(props){
+class ToastrWrapper extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             toastList: [],
@@ -58,18 +60,22 @@ class ToastWrapper extends React.Component {
             toastList: [...this.state.toastList,  testList[indexMap[e.target.name]]]
         });
     }
+
     render() {
         return (
             <div>
-                <button name="success" onClick={this.hanldeOnClick}>Success</button>
-                <button name="danger" onClick={this.hanldeOnClick}>Danger</button>
-                <button name="info" onClick={this.hanldeOnClick}>Info</button>
-                <button name="warning" onClick={this.hanldeOnClick}>Warning</button>
-                <Toast toastList={this.state.toastList} position="top-right" />
+                <Button 
+                    primary name="success" 
+                    onClick={this.hanldeOnClick}
+                >
+                    Success
+                </Button>
+                <Toastr toastList={this.state.toastList}/>
             </div>
         )
     }
+    
 }
-<ToastWrapper/>
-//  <Toast toastList={testList} position="top-right" />
+
+<ToastrWrapper/>
 ```

@@ -10,6 +10,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0",
     "typescript": "~3.7.2"
   },
   "scripts": {
@@ -41,10 +42,13 @@
     "@testing-library/react": "^9.5.0",
     "@types/jest": "^24.9.1",
     "@types/react": "^16.9.34",
+    "@types/styled-components": "^5.1.0",
     "cz-conventional-changelog": "^3.1.0",
     "prettier": "2.0.5",
+    "react-spring": "^8.0.27",
     "react-styleguidist": "^11.0.6",
-    "semantic-release": "^17.0.7"
+    "semantic-release": "^17.0.7",
+    "styled-components-modifiers": "^1.2.5"
   },
   "husky": {
     "hooks": {
