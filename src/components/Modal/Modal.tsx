@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { typeScale } from "../../utils";
-import React, { ReactElement, useState, useEffect } from "react";
+import React, { ReactElement } from "react";
 import { Button } from "../Button/Button";
 import { useSpring, animated } from "react-spring";
 const ModalWrapper = styled.div`
@@ -28,7 +28,7 @@ interface IProps {
     setShowModal: Function;
 }
 
-const Modal = ({ showModal, setShowModal }: IProps): ReactElement => {
+const Modal = ({ showModal }: IProps): ReactElement => {
     const animation = useSpring({
         opacity: showModal ? 1 : 0,
         transform: showModal ? `translateY(0)` : `translateY(-200%)`

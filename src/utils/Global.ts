@@ -1,7 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import { PRIMARY_FONT } from "./typography";
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     html {
         color: ${(props) => "black"};
         font-size: 16px;

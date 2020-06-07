@@ -41,7 +41,7 @@ function App(): ReactElement {
     return (
         <div className="app">
             <div className="app-header">
-                <Toast toastList={testList} position="top-right" />
+                <Toast toastList={testList} />
             </div>
         </div>
     );

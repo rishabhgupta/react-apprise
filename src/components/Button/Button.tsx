@@ -2,10 +2,7 @@ import styled from "styled-components";
 import { defaultTheme, typeScale } from "../../utils";
 import {
     applyStyleModifiers,
-    styleModifierPropTypes
 } from "styled-components-modifiers";
-import { ReactNode, ButtonHTMLAttributes, FunctionComponent } from "react";
-import { thisExpression } from "@babel/types";
 
 const HEADING_MODIFIERS = {
     small: () => `
@@ -98,9 +95,9 @@ export const Button = styled.button<IButton>`
         color: ${defaultTheme.testOnDisabled};
         cursor: not-allowed;
         border: ${(props) =>
-            props.secondary
-                ? `2px solid ${defaultTheme.testOnDisabled}`
-                : "none"};
+        props.secondary
+            ? `2px solid ${defaultTheme.testOnDisabled}`
+            : "none"};
     }
 
     ${applyStyleModifiers(HEADING_MODIFIERS)}
