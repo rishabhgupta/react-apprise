@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { defaultTheme, typeScale } from "../../utils";
-import {
-    applyStyleModifiers,
-} from "styled-components-modifiers";
+import { applyStyleModifiers } from "styled-components-modifiers";
 
 const HEADING_MODIFIERS = {
     small: () => `
@@ -95,9 +93,9 @@ export const Button = styled.button<IButton>`
         color: ${defaultTheme.testOnDisabled};
         cursor: not-allowed;
         border: ${(props) =>
-        props.secondary
-            ? `2px solid ${defaultTheme.testOnDisabled}`
-            : "none"};
+            props.secondary
+                ? `2px solid ${defaultTheme.testOnDisabled}`
+                : "none"};
     }
 
     ${applyStyleModifiers(HEADING_MODIFIERS)}
