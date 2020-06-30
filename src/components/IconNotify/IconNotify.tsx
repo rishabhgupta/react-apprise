@@ -23,16 +23,21 @@ const SNotify = styled.div<ISNotify>`
     border-radius: 3px;
     .wrapper {
         display: flex;
-        align-items: center;
+        align-items: stretch;
         justify-content: center;
         height: 100%;
         .icon {
             flex: 0 0 36px;
             background-color: red;
-            height: 100%; 
+            height: auto; 
+            position: relative;
+
             img {
                 max-width: 16px;
                 padding: 8px 10px;
+                position: absolute;
+                top: 50%;
+                margin-top: -50%;
             }
         }
         /* border: 1px solid; */
@@ -71,7 +76,7 @@ const IconNotify = (props: ISingleNotify) => {
                 <div className="icon">
                     <img src={warningIcon} alt="" />
                 </div>
-                <p>Single Line Here Single Single Line Here Single Single Line Here Single</p>
+                <p>Single Line Here Single</p>
                 <div className="close">
                     X
                 </div>
